@@ -1,5 +1,6 @@
 import 'package:easybuyer/screens/home/botnav.dart';
 import 'package:easybuyer/screens/home/home.dart';
+import 'package:easybuyer/screens/home/mydrawer.dart';
 import 'package:easybuyer/screens/home/profile.dart';
 import 'package:easybuyer/screens/home/shopping.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,10 @@ class _BotNavState extends State<BotNav> {
   Widget build(BuildContext context) {
     var mQuery = MediaQuery.of(context);
     return Scaffold(
+      appBar: AppBar(
+        surfaceTintColor: Color(0xfff4f2ee),
+        backgroundColor: Color(0xfff4f2ee),
+      ),
       body: _pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -64,6 +69,7 @@ class _BotNavState extends State<BotNav> {
           ),
         ],
       ),
+      drawer: MyDrawer(),
     );
   }
 }

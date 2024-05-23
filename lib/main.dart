@@ -5,8 +5,11 @@ import 'package:easybuyer/screens/auth_ui/signup/signup.dart';
 import 'package:easybuyer/screens/auth_ui/splash.dart';
 import 'package:easybuyer/screens/auth_ui/welcome/welcome.dart';
 import 'package:easybuyer/screens/home/botnav.dart';
+import 'package:easybuyer/screens/home/editprofile.dart';
 import 'package:easybuyer/screens/home/home.dart';
+import 'package:easybuyer/screens/home/map_page.dart';
 import 'package:easybuyer/screens/home/payment_page.dart';
+import 'package:easybuyer/screens/home/shopping.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +24,14 @@ void main() async
           projectId: "easybuyer-576e7"
       )
   );
-  runApp(DevicePreview(
-    builder: (context)
-    {
-      return MyApp();
-    },
-  ));
+  // runApp(DevicePreview(
+  //   builder: (context)
+  //   {
+  //     return MyApp();
+  //   },
+  // ));
 
-  // runApp(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -48,7 +51,7 @@ class _MyAppState extends State<MyApp> {
         builder: (context, snapshot) {
           if(snapshot.hasData)
             {
-              return BotNav();
+              return BotNav(); // botnav here
             }
           return Splash();
         }
@@ -56,3 +59,4 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+

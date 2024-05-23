@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'package:easybuyer/screens/auth_ui/welcome/welcome.dart';
+import 'package:easybuyer/screens/home/botnav.dart';
+import 'package:easybuyer/screens/home/editprofile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -40,7 +43,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Future getImage(ImageSource source) async {
-    final pickedFile = await ImagePicker().getImage(source: source);
+    final pickedFile = await ImagePicker().pickImage(source: source);
 
     if (pickedFile != null) {
       final directory = await getApplicationDocumentsDirectory();
@@ -133,16 +136,24 @@ class _ProfileState extends State<Profile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
-                  children: [
-                    SvgPicture.asset(
-                        "assets/images/profile_images/profile-line.svg"),
-                    SizedBox(width: mQuery.size.width * 0.032,),
-                    Text("Edit profile information", style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'SatoshiMedium'
-                    ),)
-                  ],
+                GestureDetector(
+                  onTap: ()
+                  {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return EditProfile();
+                    }));
+                  },
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                          "assets/images/profile_images/profile-line.svg"),
+                      SizedBox(width: mQuery.size.width * 0.032,),
+                      Text("Edit profile information", style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'SatoshiMedium'
+                      ),)
+                    ],
+                  ),
                 ),
                 SizedBox(height: mQuery.size.height*0.01,),
                 Row(
@@ -196,7 +207,9 @@ class _ProfileState extends State<Profile> {
                     children: [
                       SvgPicture.asset("assets/images/profile_images/loginIcon.svg"),
                       SizedBox(width: mQuery.size.width * 0.032,),
-                      Text("Log Out", style: TextStyle(
+                      Text( "Log Out" ,
+                        style:
+                      TextStyle(
                           color: Color(0xffFF2120),
                           fontFamily: 'SatoshiMedium'
                       ),)

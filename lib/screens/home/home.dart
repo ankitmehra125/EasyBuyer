@@ -1,5 +1,7 @@
 import 'package:easybuyer/firebase_helper/firebase_firestore_helper/firebase_firestore_helper.dart';
 import 'package:easybuyer/models/product_model/product_model.dart';
+import 'package:easybuyer/screens/auth_ui/signup/signup.dart';
+import 'package:easybuyer/screens/auth_ui/welcome/welcome.dart';
 import 'package:easybuyer/screens/home/budsContent.dart';
 import 'package:easybuyer/screens/home/laptopContent.dart';
 import 'package:easybuyer/screens/home/phoneContent.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 
 bool isMacbookAir = false;
 bool isMacbookPro = false;
@@ -54,7 +57,6 @@ class _HomeState extends State<Home> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: kToolbarHeight,),
             Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: mQuery.size.width * 0.045,
@@ -62,14 +64,26 @@ class _HomeState extends State<Home> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Easy Buyer",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontFamily: 'SatoshiBold',
-                      color: Colors.black,
-                    ),
+                  Center(
+                    child: SvgPicture.asset("assets/images/EasyBuyer.svg",width: mQuery.size.width*0.7,
+                      color: Color(0xffac7a48),),
                   ),
+                  SizedBox(height: mQuery.size.height*0.023,),
+                  Text("Welcome ${name.text.toString()}",style: TextStyle(
+                      fontSize: 13,
+                      fontFamily: 'SatoshiBold',
+                      color: Colors.black
+                  ),),
+                  Text(phone.text.toString(),style: TextStyle(
+                      fontSize: 13,
+                      fontFamily: 'SatoshiBold',
+                      color: Colors.black
+                  ),),
+                  Text(email.text.toString(),style: TextStyle(
+                    fontSize: 13,
+                      fontFamily: 'SatoshiBold',
+                    color: Colors.black
+                  ),),
                   SizedBox(height: mQuery.size.height * 0.032,),
                   Container(
                     width: double.infinity,
@@ -112,7 +126,8 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-            SingleChildScrollView(
+
+             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
                 padding: EdgeInsets.symmetric(
@@ -229,13 +244,17 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-            ),
+            )  ,
+
+
             SizedBox(height: mQuery.size.height*0.032,),
             Divider(
               thickness: 6,
               color: Color(0xfffbe5ba),
             ),
             SizedBox(height: mQuery.size.height*0.023,),
+
+
 
             if(isLaptop)
               laptopItems(context)

@@ -3,6 +3,7 @@ import 'package:easybuyer/firebase_helper/firebase_auth_helper/firebase_auth_hel
 import 'package:easybuyer/screens/auth_ui/signup/signup.dart';
 import 'package:easybuyer/screens/home/botnav.dart';
 import 'package:easybuyer/screens/home/home.dart';
+import 'package:easybuyer/screens/home/map_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -76,6 +77,9 @@ class _LoginState extends State<Login> {
                     border: InputBorder.none,
                     prefixIcon: Icon(Icons.email_outlined),
                     hintText: "Email",
+                    contentPadding: EdgeInsets.only(
+                      top: mQuery.size.height*0.004
+                    ),
                     hintStyle: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -99,6 +103,9 @@ class _LoginState extends State<Login> {
                   obscureText: isPasswordVisible,
                   decoration: InputDecoration(
                     border: InputBorder.none,
+                    contentPadding: EdgeInsets.only(
+                        top: mQuery.size.height*0.006
+                    ),
                     prefixIcon: Icon(Icons.lock),
                     hintText: "Password",
                     hintStyle: TextStyle(color: Colors.grey),
@@ -122,7 +129,7 @@ class _LoginState extends State<Login> {
                   if (isValidated) {
                     bool isLogined = await FirebaseAuthHelper.instance.login(email.text, password.text, context);
                     if (isLogined) {
-                      Routes.instance.pushAndRemoveUntil(BotNav(), context);
+                      Routes.instance.pushAndRemoveUntil(MapPage(), context);
                     }
                   }
                 },

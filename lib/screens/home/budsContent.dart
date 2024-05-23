@@ -21,7 +21,7 @@ Widget budsItems(BuildContext context)
               children: [
                 Container(
                   width: mQuery.size.width*0.43,
-                  height: mQuery.size.height*0.24,
+                  height: mQuery.size.height*0.26,
                   padding: EdgeInsets.symmetric(
                       horizontal: mQuery.size.width*0.03
                   ),
@@ -145,7 +145,7 @@ Widget budsItems(BuildContext context)
                 ),
                 Container(
                   width: mQuery.size.width*0.43,
-                  height: mQuery.size.height*0.24,
+                  height: mQuery.size.height*0.26,
                   padding: EdgeInsets.symmetric(
                       horizontal: mQuery.size.width*0.03
                   ),
@@ -277,7 +277,7 @@ Widget budsItems(BuildContext context)
               children: [
                 Container(
                   width: mQuery.size.width*0.43,
-                  height: mQuery.size.height*0.24,
+                  height: mQuery.size.height*0.26,
                   padding: EdgeInsets.symmetric(
                       horizontal: mQuery.size.width*0.03
                   ),
@@ -403,7 +403,7 @@ Widget budsItems(BuildContext context)
                 ),
                 Container(
                   width: mQuery.size.width*0.43,
-                  height: mQuery.size.height*0.24,
+                  height: mQuery.size.height*0.26,
                   padding: EdgeInsets.symmetric(
                       horizontal: mQuery.size.width*0.03
                   ),
